@@ -5,8 +5,10 @@
 using namespace std;
 
 namespace ariel {
-    Character::Character(const Point& location, int hitPoints, const string& name)
-        : location(location), hitPoints(hitPoints), name(name) {}
+
+    Character::Character(string name, const Point& location, int hitPoints)
+    : name(name), location(location), hitPoints(hitPoints) {}
+
 
     bool Character::isAlive() const {
         return hitPoints > 0;
@@ -36,8 +38,8 @@ namespace ariel {
     }
 
     string Character::print() {
-        cout << name << " - Hit Points: " << hitPoints << ", Location: ";
-        location.print();
+        return name + " - Hit Points: " + std::to_string(hitPoints) + ", Location: " + location.print();
     }
+
 
 }

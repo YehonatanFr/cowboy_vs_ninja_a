@@ -3,12 +3,12 @@
 using namespace std;
 
 namespace ariel {
-    TrainedNinja::TrainedNinja(const Point& location)
-    : Ninja(location, 120, "Trained Ninja", 12) {}
 
-    void TrainedNinja::print(){
-        cout << "Trained Ninja - ";
-        Ninja::print();
+    TrainedNinja::TrainedNinja(string name, const Point& location) 
+    : Ninja(name, location, 120, 12) {}
+
+    string TrainedNinja::print() {
+        // Implement the print logic
+        return "";
     }
-
 }

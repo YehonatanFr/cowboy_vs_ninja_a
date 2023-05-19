@@ -12,7 +12,7 @@ namespace ariel {
         std::string name;
 
     public:
-        Character(const Point& location, int hitPoints, const std::string& name);
+        Character(std::string name, const Point& location, int hitPoints);
 
         bool isAlive() const;
 
@@ -26,7 +26,11 @@ namespace ariel {
 
         void setLocation(const Point& loca);
 
-        std::string print();
+        int getHitPoints(){
+            return hitPoints;
+        }
+
+        virtual std::string print();
     };
 }
 

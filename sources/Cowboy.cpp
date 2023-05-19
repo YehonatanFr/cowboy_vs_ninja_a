@@ -1,8 +1,12 @@
 #include "Cowboy.hpp"
 
+using namespace std;
+
 namespace ariel {
-    Cowboy::Cowboy(const Point& location, int hitPoints, const std::string& name, int bullets)
-        : Character(location, hitPoints, name), bullets(bullets) {}
+
+    Cowboy::Cowboy(std::string name, Point location) 
+    :Character(name, location, 110), bullets(6){}
+
 
     void Cowboy::shoot(Character* enemy) {
         if (isAlive() && hasBullets()) {
@@ -11,17 +15,19 @@ namespace ariel {
         }
     }
 
-    bool Cowboy::hasBullets() const {
+    bool Cowboy::hasBullets(){
         return bullets > 0;
+
     }
 
     void Cowboy::reload() {
         bullets = 6;
     }
 
-    void Cowboy::print() const {
-        std::cout << "C - ";
-        Character::print();
-        std::cout << ", Bullets: " << bullets << std::endl;
+    string Cowboy::print(){
+        return "" ;
+        // std::cout << "C - ";
+        // Character::print();
+        // std::cout << ", Bullets: " << bullets << std::endl;
     }
 }

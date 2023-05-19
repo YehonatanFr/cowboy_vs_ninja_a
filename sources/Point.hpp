@@ -18,7 +18,7 @@ namespace ariel{
 
             double distance(const Point& other);
             
-            Point& moveTowards(Point&, Point&, double);
+            Point moveTowards(Point current, Point target, double distance);
             
             double getX() const{
                 return Xco;
@@ -26,6 +26,15 @@ namespace ariel{
 
             double getY() const{
                 return Yco;
+            }
+
+
+            void setX(double x){
+                Xco = x;
+            }
+
+            void setY(double y){
+                Yco = y;
             }
 
             std::string print();

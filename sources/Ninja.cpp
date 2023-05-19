@@ -6,8 +6,10 @@
 using namespace std;
 
 namespace ariel {
-    Ninja::Ninja(const Point& location, int hitPoints, const string& name, int speed)
-        : Character(location, hitPoints, name), speed(speed) {}
+
+    Ninja::Ninja(std::string name, const Point& location, int hitPoints, int speed)
+    :Character(name,location, hitPoints) ,speed(speed) {}
+
 
     void Ninja::move(Character* enemy) {
         return;
@@ -28,8 +30,6 @@ namespace ariel {
     }
 
     string Ninja::print() {
-        cout << "Ninja - ";
-        Character::print();
-        std::cout << ", Speed: " << speed << endl;
+        return "";
     }
 }

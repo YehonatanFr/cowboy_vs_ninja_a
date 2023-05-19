@@ -1,11 +1,15 @@
 #include "Point.hpp"
 
+using namespace std;
+
 namespace ariel {
     // Default constructor
     Point::Point() : Xco(0), Yco(0) {}
 
     // Parameterized constructor
     Point::Point(double Xco, double Yco) : Xco(Xco), Yco(Yco) {}
+
+    
 
     // Calculate the distance between two points
     double Point::distance(const Point& other) {
@@ -15,27 +19,29 @@ namespace ariel {
     }
 
     // Move towards a point by a given distance
-    Point& Point::moveTowards(Point& current, Point& target, double distance) {
-        double dx = target.Xco - current.Xco;
-        double dy = target.Yco - current.Yco;
-        double totalDistance = sqrt(dx * dx + dy * dy);
+    Point Point::moveTowards(Point current, Point target, double distance) {
+        double currentDistance = current.distance(target);
+        
+        Point newPosition = current;
 
-        if (totalDistance <= distance) {
-            // The target point is within or at the desired distance
-            current = target;
-        } else {
-            double ratio = distance / totalDistance;
-            double newX = current.Xco + dx * ratio;
-            double newY = current.Yco + dy * ratio;
-            current.Xco = newX;
-            current.Yco = newY;
+        if (currentDistance > distance) {
+            double ratio = distance / currentDistance;
+            double dx = target.getX() - current.getX();
+            double dy = target.getY() - current.getY();
+            newPosition.setX(current.getX() + dx * ratio);
+            newPosition.setY(current.getY() + dy * ratio);
+        } 
+        else {
+            newPosition = target;
         }
 
-        return current;
+        return newPosition;
     }
 
+
+
     // Print the coordinates of the point
-    std::string Point::print() {
-        return "(" + std::to_string(Xco) + ", " + std::to_string(Yco) + ")";
+    string Point::print() {
+        return "(" + to_string(Xco) + ", " + to_string(Yco) + ")";
     }
 }

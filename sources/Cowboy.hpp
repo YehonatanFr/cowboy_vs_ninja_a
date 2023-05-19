@@ -2,6 +2,7 @@
 #define COWBOY_HPP
 
 #include "Character.hpp"
+#include "Point.hpp"
 
 namespace ariel {
     class Cowboy : public Character {
@@ -9,15 +10,15 @@ namespace ariel {
         int bullets;
 
     public:
-        Cowboy(const Point& location, int hitPoints, const std::string& name, int bullets);
+        Cowboy(std::string name, Point location);
 
         void shoot(Character* enemy);
 
-        bool hasBullets() const;
+        bool hasBullets() ;
 
         void reload();
 
-        void print() const override;
+        std::string print() override;
     };
 }
 
